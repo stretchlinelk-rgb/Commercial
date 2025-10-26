@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Searchline Commercial</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+<script src="https://unpkg.com/lucide/dist/lucide.js"></script>
+
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb;
+    scroll-behavior: smooth;
+  }
+
+  header {
+    background: linear-gradient(to right, #0f3d91, #002b5c);
+  }
+
+  footer {
+    background: linear-gradient(to right, #0f3d91, #002b5c);
+  }
+
+  main {
+    flex: 1;
+    padding: 2rem;
+  }
+
+  /* Section Titles */
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f3d91;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-left: 6px solid #1e40af;
+    padding-left: 10px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Card Titles */
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    text-transform: capitalize;
+    letter-spacing: 0.2px;
+  }
+
+  .dashboard-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dashboard-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+  }
+
+  .dashboard-img {
+    border-radius: 0.75rem;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .dashboard-img:hover {
+    transform: scale(1.03);
+  }
+
+  /* Buttons */
+  .btn-access {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: #0f3d91;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-access:hover {
+    background-color: #1e40af;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="text-white fixed w-full z-50 shadow-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold tracking-wide">Searchline Commercial & Logistics Hub</h1>
+    <nav class="space-x-6">
+      <a href="../index.html" class="hover:text-blue-300">Home</a>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="mt-24 max-w-7xl mx-auto px-6">
+  
+  <!-- Covering Plant Reports -->
+  <section class="mb-12">
+    <h3>Covering Plant Reports</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="dashboard-card">
+        <h4>Courier detail of CP and YD</h4>
+        <img src="../assets/DB/COURIER_DETAIL_2025.png" class="dashboard-img" alt="Courier Detail 2025" onclick="openImagePopup(this)">
+        <p class="text-gray-600 text-sm mb-3 mt-2">Comprehensive courier activity across covering and yarn dye plants for 2025.</p>
+        <button class="btn-access mt-auto"><i data-lucide="unlock"></i> Request Access</button>
+      </div>
+      <div class="dashboard-card">
+        <h4>CP sales details up to 2025</h4>
+        <img src="../assets/DB/CP_UPTO_2020.png" class="dashboard-img" alt="Covering Plant Sales" onclick="openImagePopup(this)">
+        <p class="text-gray-600 text-sm mb-3 mt-2">Sales performance trends for the Covering Plant from 2020–2025.</p>
+        <button class="btn-access mt-auto"><i data-lucide="unlock"></i> Request Access</button>
+      </div>
+      <div class="dashboard-card">
+        <h4>CP last month sales update</h4>
+        <img src="../assets/DB/COURIER_DETAIL_LAST_MONTH.png" class="dashboard-img" alt="CP Last Month" onclick="openImagePopup(this)">
+        <p class="text-gray-600 text-sm mb-3 mt-2">Latest month’s sales performance summary.</p>
+        <button class="btn-access mt-auto"><i data-lucide="unlock"></i> Request Access</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Yarn Dye Plant Reports -->
+  <section class="mb-12">
+    <h3>Yarn Dye Plant Reports</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="dashboard-card">
+        <h4>YD plant sales overview</h4>
+        <img src="../assets/DB/YD_ALL_TIME.png" class="dashboard-img" alt="YD Sales" onclick="openImagePopup(this)">
+        <p class="text-gray-600 text-sm mb-3 mt-2">Complete sales history of the Yarn Dye Plant.</p>
+        <button class="btn-access mt-auto"><i data-lucide="unlock"></i> Request Access</button>
+      </div>
+      <div class="dashboard-card">
+        <h4>YD monthly performance</h4>
+        <img src="../assets/DB/YD_LAST_MONTH.png" class="dashboard-img" alt="YD Performance" onclick="openImagePopup(this)">
+        <p class="text-gray-600 text-sm mb-3 mt-2">Latest sales and output comparison by month.</p>
+        <button class="btn-access mt-auto"><i data-lucide="unlock"></i> Request Access</button>
+      </div>
+      <div class="dashboard-card">
+        <h4>YD internal vs external</h4>
+        <img src="../assets/DB/YD_ENTERNAL_VS_EXTERNAL.png" class="dashboard-img" alt="YD Inventory" onclick="openImagePopup(this)">
+        <p class="text-gray-600 text-sm mb-3 mt-2">Comparison between internal and external production channels.</p>
+        <button class="btn-access mt-auto"><i data-lucide="unlock"></i> Request Access</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Elastic Plant Reports -->
+  <section class="mb-12">
+    <h3>Elastic Plant Reports</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="dashboard-card">
+        <h4>All plant sales overview</h4>
+        <img src="../assets/DB/BUDGET_UPDATE.png" class="dashboard-img" alt="Elastic Plant Sales" onclick="openImagePopup(this)">
+        <p class="text-gray-600 text-sm mb-3 mt-2">Consolidated view of all Elastic Plant sales activity.</p>
+        <button class="btn-access mt-auto"><i data-lucide="unlock"></i> Request Access</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courier Reports -->
+  <section class="mb-12">
+    <h3>Courier Reports</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="dashboard-card">
+        <h4>Courier summary 2025</h4>
+        <img src="../assets/DB/COURIER_DETAIL_2025.png" class="dashboard-img" alt="Courier 1" onclick="openImagePopup(this)">
+        <p class="text-gray-600 text-sm mb-3 mt-2">Shipment and delivery data for 2025.</p>
+        <button class="btn-access mt-auto"><i data-lucide="unlock"></i> Request Access</button>
+      </div>
+      <div class="dashboard-card">
+        <h4>Courier last month update</h4>
+        <img src="../assets/DB/COURIER_DETAIL_LAST_MONTH.png" class="dashboard-img" alt="Courier 2" onclick="openImagePopup(this)">
+        <p class="text-gray-600 text-sm mb-3 mt-2">Performance comparison with prior month’s dispatch volumes.</p>
+        <button class="btn-access mt-auto"><i data-lucide="unlock"></i> Request Access</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Export / Import Reports -->
+  <section class="mb-20">
+    <h3>Export & Import Reports</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="dashboard-card">
+        <h4>Export summary</h4>
+        <img src="../assets/DB/EXPORT.png" class="dashboard-img" alt="Export Report" onclick="openImagePopup(this)">
+        <p class="text-gray-600 text-sm mb-3 mt-2">Comprehensive export shipment insights.</p>
+        <button class="btn-access mt-auto"><i data-lucide="unlock"></i> Request Access</button>
+      </div>
+      <div class="dashboard-card">
+        <h4>Import summary</h4>
+        <img src="../assets/DB/IMPORT.png" class="dashboard-img" alt="Import Report" onclick="openImagePopup(this)">
+        <p class="text-gray-600 text-sm mb-3 mt-2">Import status overview with supplier breakdown.</p>
+        <button class="btn-access mt-auto"><i data-lucide="unlock"></i> Request Access</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="text-gray-200 mt-auto fixed w-full bottom-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 text-center border-t border-blue-700">
+    <p>© 2025 Searchline Commercial & Logistics Hub — All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+lucide.replace();
+
+// Open image popup in new centered window
+function openImagePopup(imgElement) {
+  const imageUrl = imgElement.src;
+  const popup = window.open("", "_blank", "width=1200,height=800,scrollbars=yes,resizable=yes");
+  popup.document.write(`
+    <html>
+    <head>
+      <title>Image Preview</title>
+      <style>
+        body { margin:0; background:#111; display:flex; align-items:center; justify-content:center; height:100vh; }
+        img { max-width:95%; max-height:95%; border-radius:10px; box-shadow:0 0 25px rgba(255,255,255,0.2); }
+      </style>
+    </head>
+    <body>
+      <img src="${imageUrl}" alt="Preview">
+    </body>
+    </html>
+  `);
+}
+</script>
+</body>
+</html>

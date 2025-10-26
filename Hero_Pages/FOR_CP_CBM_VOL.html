@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Searchline Commercial </title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body { font-family: 'Inter', sans-serif; background-color: #f9fafb; display: flex; flex-direction: column; min-height: 100vh; }
+  main { flex: 1; }
+  .tracker-card { background: white; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+  .result-box { background: #fbbf24; color: #111; font-weight: bold; padding: 1rem 1.5rem; border-radius: 0.5rem; text-align: center; margin-top: 1rem; }
+  input { width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="bg-blue-900 text-white shadow-md fixed w-full top-0 left-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Searchline Commercial</h1>
+    <nav class="space-x-6">
+      <a href="../index.html" class="hover:text-blue-300">Home</a>
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-6 py-32">
+  <h2 class="text-3xl font-semibold text-gray-800 mb-8">CBM & Volumetric Weight Calculator</h2>
+
+  <div class="tracker-card">
+    <h3 class="text-xl font-semibold text-gray-800 mb-4">Enter Box Counts</h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="block text-gray-700 mb-1">Box Size 1</label>
+        <input type="number" id="box1" placeholder="Enter box count" class="border p-2 rounded">
+      </div>
+      <div>
+        <label class="block text-gray-700 mb-1">Box Size 4</label>
+        <input type="number" id="box4" placeholder="Enter box count" class="border p-2 rounded">
+      </div>
+      <div>
+        <label class="block text-gray-700 mb-1">Box Size 6 & 8 </label>
+        <input type="number" id="box6" placeholder="Enter box count" class="border p-2 rounded">
+      </div>
+      <div>
+        <label class="block text-gray-700 mb-1">Box Size 8</label>
+        <input type="number" id="box8" placeholder="Enter box count" class="border p-2 rounded">
+      </div>
+    </div>
+
+    <button onclick="calculateBoxes()" class="w-full bg-blue-900 text-white py-2 rounded hover:bg-blue-800 flex justify-center items-center gap-2 mb-4">
+      <i class="fa fa-calculator"></i> Track
+    </button>
+
+    <div id="resultBox" class="result-box hidden"></div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-blue-900 text-gray-200 mt-auto fixed w-full bottom-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 text-center border-t border-blue-700">
+    <p>© 2025 Searchline Commercial & Logistics Hub — All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+function calculateBoxes() {
+  const boxes = [
+    { id: 'box1', size: [73,44,35] },
+    { id: 'box4', size: [40,40,34] },
+    { id: 'box6', size: [73,41,26] },
+    { id: 'box8', size: [26,26,33] },
+  ];
+
+  let resultText = '';
+  let totalCBM = 0;
+  let totalVolWeight = 0;
+
+  boxes.forEach(box => {
+    const count = parseInt(document.getElementById(box.id).value) || 0;
+    if(count > 0) {
+      const [L,W,H] = box.size;
+      const cbmPerBox = (L*W*H)/1000000;
+      const volWeightPerBox = (L*W*H)/5000;
+      const cbmTotal = cbmPerBox*count;
+      const volWeightTotal = volWeightPerBox*count;
+
+      totalCBM += cbmTotal;
+      totalVolWeight += volWeightTotal;
+
+      resultText += `<p class="mb-1"><strong>${count} × Box [${L}×${W}×${H} cm]</strong>: ${cbmTotal.toFixed(3)} m³, ${volWeightTotal.toFixed(2)} kg</p>`;
+    }
+  });
+
+  if(resultText === '') resultText = '<p>No boxes entered.</p>';
+
+  resultText += `<hr class="my-2">`;
+  resultText += `<p><strong>Total CBM:</strong> ${totalCBM.toFixed(3)} m³</p>`;
+  resultText += `<p><strong>Total Volumetric Weight:</strong> ${totalVolWeight.toFixed(2)} kg</p>`;
+
+  const resultBox = document.getElementById('resultBox');
+  resultBox.innerHTML = resultText;
+  resultBox.classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
